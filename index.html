@@ -1,139 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ameya Kulkarni | Software Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ameya Kulkarni | Software Developer</title>
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 
-<!-- AOS Animation -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    * {
+      @apply transition-colors duration-300;
+    }
 
-<style>
-html {
-  scroll-behavior: smooth;
-}
-</style>
+    .theme-toggle {
+      @apply relative inline-flex h-8 w-14 items-center rounded-full cursor-pointer transition-colors duration-300;
+    }
+
+    .theme-toggle.light {
+      @apply bg-gray-300;
+    }
+
+    .theme-toggle.dark {
+      @apply bg-gray-700;
+    }
+
+    .theme-toggle span {
+      @apply inline-block h-6 w-6 transform rounded-full bg-white transition-transform duration-300 flex items-center justify-center;
+    }
+
+    .theme-toggle.light span {
+      @apply translate-x-1;
+    }
+
+    .theme-toggle.dark span {
+      @apply translate-x-7;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 font-sans transition-colors duration-300">
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-  <h1 class="text-5xl md:text-6xl font-bold mb-4" data-aos="fade-up">
-    Ameya Kulkarni
-  </h1>
-  <p class="text-xl text-gray-600 mb-6" data-aos="fade-up" data-aos-delay="200">
-    Backend Engineer | Java | Spring Boot | System Design
-  </p>
-  <div class="space-x-4" data-aos="fade-up" data-aos-delay="400">
-    <a href="#projects" class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">
-      View Projects
-    </a>
-    <a href="Ameya_Kulkarni_Final.pdf" download class="px-6 py-3 border border-black rounded-lg hover:bg-black hover:text-white transition">
-      Download Resume
-    </a>
-  </div>
-</section>
+  <!-- HEADER WITH THEME TOGGLE -->
+  <header class="fixed top-0 right-0 z-50 p-6">
+    <button id="theme-toggle" class="theme-toggle light" aria-label="Toggle dark mode" title="Toggle theme">
+      <span>
+        <svg class="sun-icon w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l-2.12-2.12a1 1 0 00-1.414 1.414l2.12 2.12a1 1 0 001.414-1.414zM2.05 6.464l2.12-2.12a1 1 0 00-1.414-1.414L.636 4.05a1 1 0 001.414 1.414zM17.95 6.464l2.12 2.12a1 1 0 001.414-1.414l-2.12-2.12a1 1 0 00-1.414 1.414zM15.657 12.929l2.12 2.12a1 1 0 01-1.414 1.414l-2.12-2.12a1 1 0 111.414-1.414z" clip-rule="evenodd"/>
+        </svg>
+        <svg class="moon-icon w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+        </svg>
+      </span>
+    </button>
+  </header>
 
-<!-- SUMMARY -->
-<section class="max-w-4xl mx-auto py-20 px-6" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-6">About Me</h2>
-  <p class="text-gray-600 leading-relaxed">
-    Java Spring Boot Developer with 2+ years of experience building scalable enterprise
-    solutions in financial services. Experienced in designing automation systems,
-    optimizing data pipelines, and developing high-performance REST APIs.
-  </p>
-</section>
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white" data-aos="fade-up">
+      Ameya Kulkarni
+    </h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 mb-6" data-aos="fade-up" data-aos-delay="200">
+      Backend Engineer | Java | Spring Boot | System Design
+    </p>
+    <div class="space-x-4" data-aos="fade-up" data-aos-delay="400">
+      <a href="#projects" class="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 active:scale-95 transition-all duration-150 inline-block font-medium">
+        View Projects
+      </a>
+      <a href="Ameya_Kulkarni_Final.pdf" download
+        class="px-6 py-3 border-2 border-gray-900 dark:border-gray-300 text-gray-900 dark:text-gray-100 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-300 hover:text-white dark:hover:text-gray-900 active:scale-95 transition-all duration-150 inline-block font-medium">
+        Download Resume
+      </a>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section class="bg-white py-20 px-6">
-  <div class="max-w-4xl mx-auto" data-aos="fade-up">
-    <h2 class="text-3xl font-semibold mb-6">Technical Skills</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="font-semibold">Languages</h3>
-        <p>Java, Python, SQL</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Frameworks</h3>
-        <p>Spring Boot, Angular, React</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Databases</h3>
-        <p>Postgres, Oracle, MySQL, MongoDB</p>
-      </div>
-      <div>
-        <h3 class="font-semibold">Tools</h3>
-        <p>Git, REST APIs, CI/CD, Agile</p>
+  <!-- SUMMARY -->
+  <section class="max-w-4xl mx-auto py-20 px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">About Me</h2>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+      Java Spring Boot Developer with 2+ years of experience building scalable enterprise
+      solutions in financial services. Experienced in designing automation systems,
+      optimizing data pipelines, and developing high-performance REST APIs.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="bg-gray-100 dark:bg-gray-900 py-20 px-6 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">Technical Skills</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">Languages</h3>
+          <p class="text-gray-700 dark:text-gray-300">Java, Python, SQL</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">Frameworks</h3>
+          <p class="text-gray-700 dark:text-gray-300">Spring Boot, Angular, React</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">Databases</h3>
+          <p class="text-gray-700 dark:text-gray-300">Postgres, Oracle, MySQL, MongoDB</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 dark:text-white">Tools</h3>
+          <p class="text-gray-700 dark:text-gray-300">Git, REST APIs, CI/CD, Agile</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section class="max-w-4xl mx-auto py-20 px-6">
-  <h2 class="text-3xl font-semibold mb-6" data-aos="fade-up">Experience</h2>
-
-  <div data-aos="fade-up">
-    <h3 class="text-xl font-semibold">
-      Software Developer — CLSA Technology & Services LLP
-    </h3>
-    <p class="text-gray-500 mb-4">June 2023 – Present | Pune</p>
-
-    <ul class="list-disc list-inside space-y-2 text-gray-600">
-      <li>Built email automation engine processing thousands of emails daily, reducing manual effort by 60%.</li>
-      <li>Maintained data integration adapters across 20+ trading systems.</li>
-      <li>Automated asset workflows using Python & Shell scripting.</li>
-      <li>Developed reusable Java CSV export utility supporting multiple databases.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="bg-white py-20 px-6">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-10" data-aos="fade-up">Projects</h2>
-
-    <div class="mb-10" data-aos="fade-up">
-      <h3 class="text-xl font-semibold">9Tiger.io — Low Code REST API Platform</h3>
-      <p class="text-gray-600 mt-2">
-        Contributed to db2rest framework enabling real-time SQL database access.
-        Built Table Management UI with role-based access control.
-      </p>
-    </div>
+  <!-- EXPERIENCE -->
+  <section class="max-w-4xl mx-auto py-20 px-6">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-white" data-aos="fade-up">Experience</h2>
 
     <div data-aos="fade-up">
-      <h3 class="text-xl font-semibold">Trip Recommendation System</h3>
-      <p class="text-gray-600 mt-2">
-        Hybrid recommendation engine using behavior analysis and social graph insights
-        from OpenStreetMap to suggest trending tourist destinations.
-      </p>
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+        Software Developer — CLSA Technology & Services LLP
+      </h3>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">June 2023 – Present | Pune</p>
+
+      <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+        <li>Built email automation engine processing thousands of emails daily, reducing manual effort by 60%.</li>
+        <li>Maintained data integration adapters across 20+ trading systems.</li>
+        <li>Automated asset workflows using Python & Shell scripting.</li>
+        <li>Developed reusable Java CSV export utility supporting multiple databases.</li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EDUCATION -->
-<section class="max-w-4xl mx-auto py-20 px-6" data-aos="fade-up">
-  <h2 class="text-3xl font-semibold mb-6">Education & Recognition</h2>
-  <p><strong>Bachelor of Computer Science</strong> — MIT World Peace University (2019–2023)</p>
-  <p class="mt-2">Star Performer Award — Q4 2024</p>
-</section>
+  <!-- PROJECTS -->
+  <section id="projects" class="bg-gray-100 dark:bg-gray-900 py-20 px-6 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-semibold mb-10 text-gray-900 dark:text-white" data-aos="fade-up">Projects</h2>
 
-<!-- FOOTER -->
-<footer class="text-center py-10 bg-gray-100">
-  <p>© 2026 Ameya Kulkarni</p>
-</footer>
+      <div class="mb-10" data-aos="fade-up">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">9Tiger.io — Low Code REST API Platform</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          Contributed to db2rest framework enabling real-time SQL database access.
+          Built Table Management UI with role-based access control.
+        </p>
+      </div>
 
-<script>
-AOS.init({
-  duration: 800,
-  once: true
-});
-</script>
+      <div data-aos="fade-up">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Trip Recommendation System</h3>
+        <p class="text-gray-700 dark:text-gray-300 mt-2">
+          Hybrid recommendation engine using behavior analysis and social graph insights
+          from OpenStreetMap to suggest trending tourist destinations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="max-w-4xl mx-auto py-20 px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-semibold mb-6 text-gray-900 dark:text-white">Education & Recognition</h2>
+    <p class="text-gray-900 dark:text-gray-100"><strong>Bachelor of Computer Science</strong> — MIT World Peace University (2019–2023)</p>
+    <p class="mt-2 text-gray-900 dark:text-gray-100">Star Performer Award — Q4 2024</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-10 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <p>© 2026 Ameya Kulkarni</p>
+  </footer>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const sunIcon = themeToggle.querySelector('.sun-icon');
+    const moonIcon = themeToggle.querySelector('.moon-icon');
+
+    // Check for saved theme preference or default to system preference
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+
+      setTheme(isDark ? 'dark' : 'light');
+    }
+
+    // Set theme and update UI
+    function setTheme(theme) {
+      const isDark = theme === 'dark';
+      
+      if (isDark) {
+        html.classList.add('dark');
+        themeToggle.classList.remove('light');
+        themeToggle.classList.add('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      } else {
+        html.classList.remove('dark');
+        themeToggle.classList.add('light');
+        themeToggle.classList.remove('dark');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      }
+
+      localStorage.setItem('theme', theme);
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      const isDark = html.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    // Initialize theme on page load
+    initializeTheme();
+  </script>
 
 </body>
+
 </html>
